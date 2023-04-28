@@ -1,12 +1,12 @@
 import React from 'react'
 import cloud from "./icons/cloud.svg"
 import cloudsSun from "./icons/clouds-and-sun.svg"
-import clouds from "./icons/clouds.svg"
-import rain from "./icons/rain.svg"
-import snow from "./icons/snow.svg"
-import sun from "./icons/sun.svg"
+import clouds from "./icons/clouds.gif"
+import rain from "./icons/rain.gif"
+import snow from "./icons/snowman.gif"
+import sun from "./icons/sun.gif"
 import mist from "./icons/mist.png"
-import fog from "./icons/foggy.png"
+import fog from "./icons/foggy.gif"
 
 import thunderstorm from "./icons/thunderstorm.svg"
 const WeatherBox = (props) => {
