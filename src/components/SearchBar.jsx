@@ -1,5 +1,7 @@
 import React from 'react'
 import WeatherBox from './WeatherBox'
+import Error from './Error'
+
 const api = {
     key : "f06d527c7d6e829e0a8ff4045c6407e7",
     base: "https://api.openweathermap.org/data/2.5/"
@@ -41,6 +43,7 @@ const SearchBar = () => {
         temp={Math.round(weather.main.temp)}
         status={weather.weather[0].main}
         />) : ("")}
+        {weather.cod == "404" && <Error/>}
     </div>
   )
 }
