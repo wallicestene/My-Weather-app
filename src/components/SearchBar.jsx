@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import WeatherBox from './WeatherBox'
 import Error from './Error'
 
@@ -12,7 +12,6 @@ const SearchBar = () => {
     const [weather, setWeather] = React.useState({})
     const handleChange =(event)=>{
         setLocation(event.target.value)
-        console.log(event.target.value)
     }
     const handleSubmit = (event) => {
     event.preventDefault()
@@ -21,13 +20,13 @@ const SearchBar = () => {
       .then(data => {
         setWeather(data)
          setLocation("")
-         console.log(data)
       })
-    
-}  
+        .catch(error => console.log(error))
+} 
   return (
-    <div>
-        <form className='search' onSubmit={handleSubmit}>
+    <div className='searchContainer'>
+      <div  className='searchDiv'>
+         <form className='search' onSubmit={handleSubmit}>
             <input
             className='input'
             type="text"
@@ -35,8 +34,9 @@ const SearchBar = () => {
             value={location}
             onChange={handleChange}
              />
-            <button>Search</button>
+            <button hidden>Search</button>
         </form>
+      </div>
         { (typeof weather.main != "undefined") ? (<WeatherBox 
         place={weather.name}
         country={weather.sys.country}
